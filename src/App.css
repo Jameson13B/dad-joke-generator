@@ -2,7 +2,6 @@
   text-align: center;
   background-color: #dfe8fd;
 }
-
 .App-content {
   background-color: #ffffff;
   border: 1px solid black;
@@ -12,7 +11,7 @@
   display: flex;
   flex-wrap: wrap;
 }
-
+/* This container holds the joke from the state */
 .top-container {
   border: 1px solid black;
   width: 100%;
@@ -24,18 +23,19 @@
   font-size: 1.5rem;
   padding: 15px;
 }
-
+/* This container holds the title and the signature */
 .title-container {
   border: 1px solid black;
   width: 100%;
   height: 15vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 .title-container h1 {
   margin-bottom: 10px;
 }
-
+/* This container holds the NEW/COPY buttons */
 .btn {
   cursor: pointer;
   border: 1px solid black;
@@ -56,7 +56,7 @@
   margin: 1%;
   width: 48%;
 }
-
+/* Mobile Optimization */
 @media (max-width: 600px) {
   .title-container h1 {
     margin-bottom: 5px;
