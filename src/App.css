@@ -5,6 +5,7 @@
 
 .App-content {
   background-color: #ffffff;
+  border: 1px solid black;
   min-height: 100vh;
   max-width: 600px;
   margin: 0 auto;
@@ -15,18 +16,31 @@
 .top-container {
   border: 1px solid black;
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Menlo";
+  font-size: 1.5rem;
+  padding: 15px;
+}
+
+.title-container {
+  border: 1px solid black;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+}
+.title-container h1 {
+  margin-bottom: 10px;
 }
 
 .btn {
   cursor: pointer;
   border: 1px solid black;
   width: 50%;
-  height: 40vh;
+  height: 35vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,4 +55,13 @@
 .btn:active {
   margin: 1%;
   width: 48%;
+}
+
+@media (max-width: 600px) {
+  .title-container h1 {
+    margin-bottom: 5px;
+  }
+  .title-container .sig {
+    margin-top: 5px;
+  }
 }

@@ -17,9 +17,7 @@ class App extends Component {
     const url = "https://icanhazdadjoke.com/";
     const config = {
       headers: {
-        Accept: "application/json",
-        // Requested by API for tracking
-        "User-Agent": "https://jamesonb.com/"
+        Accept: "application/json"
       }
     };
     axios
@@ -40,9 +38,21 @@ class App extends Component {
           <div className="top-container">
             {this.state.joke ? this.state.joke.joke : "Joke goes here..."}
           </div>
+
+          <div className="title-container">
+            <h1>Dad Jokes</h1>
+            <p className="sig">
+              Web App by{" "}
+              <a href="https://jamesonb.com/" target="_blanks">
+                Jameson Brown
+              </a>
+            </p>
+          </div>
+
           <div className="left-container btn" onClick={this.handleJoke}>
             NEW
           </div>
+
           <div className="right-container btn">COPY</div>
         </header>
       </div>
