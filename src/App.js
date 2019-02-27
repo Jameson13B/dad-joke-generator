@@ -54,7 +54,12 @@ class App extends Component {
             NEW
           </div>
           {/* This container holds the COPY button */}
-          <div className="right-container btn">COPY</div>
+          <div
+            className="right-container btn"
+            onClick={() => alert("Copy to clipboard feature coming soon")}
+          >
+            COPY
+          </div>
         </header>
       </div>
     );
@@ -62,3 +67,6 @@ class App extends Component {
 }
 
 export default App;
+
+// TODO:
+// Copy to clipboard button
