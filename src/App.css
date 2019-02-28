@@ -35,6 +35,14 @@
 .title-container h1 {
   margin-bottom: 10px;
 }
+.copied-modal {
+  border: 3px solid black;
+  padding: 10px;
+  align-self: center;
+  position: absolute;
+  font-size: 2.5rem;
+  bottom: 50%;
+}
 /* This container holds the NEW/COPY buttons */
 .btn {
   cursor: pointer;
@@ -63,5 +71,8 @@
   }
   .title-container .sig {
     margin-top: 5px;
+  }
+  .copied-modal {
+    bottom: 45%;
   }
 }

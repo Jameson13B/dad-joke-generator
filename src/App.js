@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import "./App.css";
 
 class App extends Component {
@@ -7,7 +8,8 @@ class App extends Component {
     super();
     this.state = {
       joke: "",
-      theme: "day"
+      theme: "day",
+      copied: false
     };
   }
   componentDidMount() {
@@ -31,6 +33,10 @@ class App extends Component {
         console.log(err);
       });
   };
+  handleOnCopy = () => {
+    this.setState({ copied: true });
+    setTimeout(() => this.setState({ copied: false }), 1000);
+  };
   render() {
     return (
       <div className="App">
@@ -48,18 +54,19 @@ class App extends Component {
                 Jameson Brown
               </a>
             </p>
+            {this.state.copied ? <p className="copied-modal">Copied!</p> : null}
           </div>
           {/* This container holds the NEW button */}
           <div className="left-container btn" onClick={this.handleJoke}>
             NEW
           </div>
           {/* This container holds the COPY button */}
-          <div
-            className="right-container btn"
-            onClick={() => alert("Copy to clipboard feature coming soon")}
+          <CopyToClipboard
+            text={this.state.joke.joke}
+            onCopy={this.handleOnCopy}
           >
-            COPY
-          </div>
+            <div className="right-container btn">COPY</div>
+          </CopyToClipboard>
         </header>
       </div>
     );
@@ -67,6 +74,3 @@ class App extends Component {
 }
 
 export default App;
-
-// TODO:
-// Copy to clipboard button
