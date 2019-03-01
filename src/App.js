@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import "./App.css";
+import {
+  TopContainer,
+  TitleContainer,
+  Button,
+  AppContent,
+  AppDiv
+} from "./Styles";
 
 class App extends Component {
   constructor() {
@@ -39,14 +45,14 @@ class App extends Component {
   };
   render() {
     return (
-      <div className="App">
-        <header className="App-content">
+      <AppDiv>
+        <AppContent>
           {/* This container holds the joke from the state */}
-          <div className="top-container">
+          <TopContainer>
             {this.state.joke ? this.state.joke.joke : "Loading joke..."}
-          </div>
+          </TopContainer>
           {/* This container holds the title and the signature */}
-          <div className="title-container">
+          <TitleContainer>
             <h1>Dad Jokes</h1>
             <p className="sig">
               Web App by{" "}
@@ -55,20 +61,18 @@ class App extends Component {
               </a>
             </p>
             {this.state.copied ? <p className="copied-modal">Copied!</p> : null}
-          </div>
+          </TitleContainer>
           {/* This container holds the NEW button */}
-          <div className="left-container btn" onClick={this.handleJoke}>
-            NEW
-          </div>
+          <Button onClick={this.handleJoke}>NEW</Button>
           {/* This container holds the COPY button */}
           <CopyToClipboard
             text={this.state.joke.joke}
             onCopy={this.handleOnCopy}
           >
-            <div className="right-container btn">COPY</div>
+            <Button>COPY</Button>
           </CopyToClipboard>
-        </header>
-      </div>
+        </AppContent>
+      </AppDiv>
     );
   }
 }
