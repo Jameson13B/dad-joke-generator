@@ -61,6 +61,7 @@ class App extends Component {
               label={this.state.theme === "day" ? "Day" : "Night"}
               checked={this.state.theme === "day" ? false : true}
               onToggle={this.handleToggle}
+              theme="square"
             />
             {this.state.joke ? this.state.joke.joke : "Loading joke..."}
           </TopContainer>
