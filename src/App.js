@@ -6,7 +6,8 @@ import {
   TitleContainer,
   Button,
   AppContent,
-  AppDiv
+  AppDiv,
+  ThemeToggle
 } from "./Styles";
 
 class App extends Component {
@@ -43,16 +44,28 @@ class App extends Component {
     this.setState({ copied: true });
     setTimeout(() => this.setState({ copied: false }), 1000);
   };
+  handleToggle = e => {
+    if (this.state.theme === "day") {
+      this.setState({ theme: "night" });
+    } else {
+      this.setState({ theme: "day" });
+    }
+  };
   render() {
     return (
-      <AppDiv>
-        <AppContent>
+      <AppDiv theme={this.state.theme}>
+        <AppContent theme={this.state.theme}>
           {/* This container holds the joke from the state */}
-          <TopContainer>
+          <TopContainer theme={this.state.theme}>
+            <ThemeToggle
+              label={this.state.theme === "day" ? "Day" : "Night"}
+              checked={this.state.theme === "day" ? false : true}
+              onToggle={this.handleToggle}
+            />
             {this.state.joke ? this.state.joke.joke : "Loading joke..."}
           </TopContainer>
           {/* This container holds the title and the signature */}
-          <TitleContainer>
+          <TitleContainer theme={this.state.theme}>
             <h1>Dad Jokes</h1>
             <p className="sig">
               Web App by{" "}
@@ -63,13 +76,15 @@ class App extends Component {
             {this.state.copied ? <p className="copied-modal">Copied!</p> : null}
           </TitleContainer>
           {/* This container holds the NEW button */}
-          <Button onClick={this.handleJoke}>NEW</Button>
+          <Button onClick={this.handleJoke} theme={this.state.theme}>
+            NEW
+          </Button>
           {/* This container holds the COPY button */}
           <CopyToClipboard
             text={this.state.joke.joke}
             onCopy={this.handleOnCopy}
           >
-            <Button>COPY</Button>
+            <Button theme={this.state.theme}>COPY</Button>
           </CopyToClipboard>
         </AppContent>
       </AppDiv>

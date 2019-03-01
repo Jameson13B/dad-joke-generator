@@ -8015,6 +8015,11 @@ react-scripts@2.1.5:
   optionalDependencies:
     fsevents "1.2.4"
 
+react-toggle-component@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-toggle-component/-/react-toggle-component-1.0.5.tgz#4855d75b5bcedb6729e0cf658b56bafe0b0cbf01"
+  integrity sha512-pssYLzXoyYnn6OXBHXAmjGIOyvIvp6zu370fbv8kYriiH4jABGZV/ewcbxjM8S0h638PvMQMeHvfzSHLGQfdXg==
+
 react@^16.8.3:
   version "16.8.3"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.3.tgz#c6f988a2ce895375de216edcfaedd6b9a76451d9"

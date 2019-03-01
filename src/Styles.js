@@ -1,12 +1,16 @@
 import styled from "styled-components";
+import Toggle from "react-toggle-component";
+import "react-toggle-component/styles.css";
 
 export const AppDiv = styled.div`
   text-align: center;
-  background-color: #dfe8fd;
+  background-color: ${props => (props.theme === "day" ? "#dfe8fd" : "black")};
 `;
 export const AppContent = styled.div`
-  background-color: #ffffff;
-  border: 1px solid black;
+  background-color: ${props => (props.theme === "day" ? "#ffffff" : "black")};
+  border: ${props =>
+    props.theme === "day" ? "1px solid black" : "1px solid white"};
+  color: ${props => (props.theme === "day" ? "black" : "white")};
   min-height: 100vh;
   max-width: 600px;
   margin: 0 auto;
@@ -15,7 +19,8 @@ export const AppContent = styled.div`
 `;
 // This container holds the joke from the state
 export const TopContainer = styled.div`
-  border: 1px solid black;
+  border: ${props =>
+    props.theme === "day" ? "1px solid black" : "1px solid white"};
   width: 100%;
   height: 50vh;
   display: flex;
@@ -24,10 +29,12 @@ export const TopContainer = styled.div`
   font-family: "Menlo";
   font-size: 1.5rem;
   padding: 15px;
+  position: relative;
 `;
 // This container holds the title and the signature
 export const TitleContainer = styled.div`
-  border: 1px solid black;
+  border: ${props =>
+    props.theme === "day" ? "1px solid black" : "1px solid white"};
   width: 100%;
   height: 15vh;
   display: flex;
@@ -37,7 +44,8 @@ export const TitleContainer = styled.div`
     margin-bottom: 10px;
   }
   .copied-modal {
-    border: 3px solid black;
+    border: ${props =>
+      props.theme === "day" ? "3px solid black" : "3px solid white"};
     padding: 10px;
     align-self: center;
     position: absolute;
@@ -59,7 +67,8 @@ export const TitleContainer = styled.div`
 // This container holds the NEW/COPY buttons
 export const Button = styled.div`
   cursor: pointer;
-  border: 1px solid black;
+  border: ${props =>
+    props.theme === "day" ? "1px solid black" : "1px solid white"};
   width: 50%;
   height: 35vh;
   display: flex;
@@ -68,12 +77,19 @@ export const Button = styled.div`
   font-size: 2.5rem;
   -webkit-transition: margin 0.5s width 0.5s ease;
   transition: margin 0.5s width 0.5s ease;
-  :hover {
-    background: #f5f5f5;
-    font-weight: bold;
+  @media (min-width: 600px) {
+    :hover {
+      background: ${props => (props.theme === "day" ? "#f5f5f5" : "#333333")};
+      font-weight: bold;
+    }
+    :active {
+      margin: 1%;
+      width: 48%;
+    }
   }
-  :active {
-    margin: 1%;
-    width: 48%;
-  }
+`;
+export const ThemeToggle = styled(Toggle)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;
